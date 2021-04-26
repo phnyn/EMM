@@ -8,6 +8,7 @@ public class GameObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //instantiate objects
         for(int i=0; i < 8;i++){
             Vector3 vec = new Vector3(UnityEngine.Random.Range(-5,5),0,UnityEngine.Random.Range(-5,5));
 

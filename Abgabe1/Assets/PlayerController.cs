@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private float _speed = 1f;
+    private float _speed = 5f;
+    private float _rotation = 5f;
+    public Vector3 targetDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -16,33 +18,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        // left and right
+        float moveHorizontal = Input.GetAxis("Horizontal") * _rotation * Time.deltaTime;
 
-        if (0<moveVertical){
-            if(transform.position.z < 5){
-                transform.position +=  new Vector3(0,0,0.1f)*_speed;
-            }
-        }
-        if (moveVertical<0){
-            if(-5 < transform.position.z){
-                transform.position +=  new Vector3(0,0,-0.1f)*_speed;
-            }
-        }
-        if (moveHorizontal<0){
-            if(-5 < transform.position.x){
-                transform.position +=  new Vector3(-0.1f,0,0)*_speed;
-            }
-        }
-        if (0<moveHorizontal){
-            if(transform.position.x < 5){
-                transform.position += new Vector3(0.1f,0,0)*_speed;
-            }
-        } 
+        //up and down
+        float moveVertical = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.Y)){
-            transform.rotation = Quaternion.Euler(10,0,0); 
-        }
-    }
+        //move player up and down z
+        transform.Translate(0,0,moveVertical);
+
+        targetDirection = new Vector3(Mathf.Sin(moveHorizontal), 0, Mathf.Cos(moveHorizontal));
+
+        //Rotate player 
+        transform.rotation *= Quaternion.LookRotation(targetDirection);
+    } 
 
 }

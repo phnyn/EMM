@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
         if (0<moveHorizontal){
             if(transform.position.x < 5){
-                transform.position +=y  new Vector3(0.1f,0,0)*_speed;
+                transform.position += new Vector3(0.1f,0,0)*_speed;
             }
         } 
 

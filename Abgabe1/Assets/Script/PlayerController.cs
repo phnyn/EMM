@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private float _speed = 5f;
     private float _rotation = 5f;
-    public Vector3 targetDirection;
+    private Vector3 targetDirection;
 
     // Start is called before the first frame update
     void Start()

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameObject : MonoBehaviour
@@ -7,6 +6,7 @@ public class GameObject : MonoBehaviour
     public Transform myPrefab;
     // Start is called before the first frame update
     public Transform parent;
+
     void Start()
     {
         //instantiate objects
@@ -19,6 +19,12 @@ public class GameObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*float x = parent.GetComponent<MeshRenderer>().bounds.size.x/2;
+        float z = parent.GetComponent<MeshRenderer>().bounds.size.z/2;
+
+        Border.zmax = parent.transform.localPosition.z + z;
+        Border.xmax = parent.transform.localPosition.x + x;
+        Border.zmin = parent.transform.localPosition.z - z;
+        Border.xmin = parent.transform.localPosition.x - x; */
     }
 }

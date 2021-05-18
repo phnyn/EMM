@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
-
-public class GameObject : MonoBehaviour
+public class GameObjects : MonoBehaviour
 {
     public Transform myPrefab;
     // Start is called before the first frame update
     public Transform parent;
-
+ 
     void Start()
     {
         //instantiate objects

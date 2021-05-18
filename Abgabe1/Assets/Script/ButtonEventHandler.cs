@@ -8,9 +8,6 @@ public class ButtonEventHandler : MonoBehaviour
 {
     public Transform player;
     public PlayerController playerController; 
-    public float _speed = 5f;
-    public float _rotation = 5f;
-
     bool forward, backward, left, right;
 
     void Start() 
@@ -20,7 +17,6 @@ public class ButtonEventHandler : MonoBehaviour
         // Register with the virtual buttons TrackableBehaviour
             vbs[i].GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
             vbs[i].GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
-            Debug.Log("Hier: "+ vbs[i].GetComponent<VirtualButtonBehaviour>().VirtualButtonName);
         }
         playerController = player.GetComponent<PlayerController>();
     }
@@ -44,43 +40,6 @@ public class ButtonEventHandler : MonoBehaviour
                 Debug.Log("left");
                 break;
         }
-
-        //up & down
-        //player.transform.position += updown;
-        //player.transform.Translate(0,0,moveVertical);
-        /*
-        String button = vb.VirtualButtonName;
-        float moveHorizontal = Time.deltaTime * _rotation;
-        float moveVertical = Time.deltaTime * _speed;
-
-        //rechts
-        if(button == "btn1"){ 
-            moveHorizontal *= 0.9f;
-            player.transform.rotation *= Quaternion.Euler(0,20,0); 
-            Debug.Log("right");
-        }
-
-        //up
-        if(button == "btn2"){
-            player.transform.position += (new Vector3(0,0,0.5f)+targetDirection)*_speed;
-            Debug.Log("up");
-        }
-
-        //down
-        if(button == "btn3"){
-            player.transform.position += (new Vector3(0,0,-0.5f)+targetDirection)*_speed;
-            Debug.Log("down");
-        }
-        //links
-        if(button == "btn4"){
-            moveHorizontal *= -0.9f;
-            player.transform.rotation *= Quaternion.Euler(0,-20,0); 
-            Debug.Log("left");
-        }
-
-        //targetDirection = new Vector3(Mathf.Sin(moveHorizontal), 0, Mathf.Cos(moveHorizontal));
-        //Rotate player 
-        //player.transform.rotation *= Quaternion.LookRotation(targetDirection); */
     }
 
     void OnButtonReleased(VirtualButtonBehaviour vb){

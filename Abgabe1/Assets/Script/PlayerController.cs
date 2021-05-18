@@ -5,32 +5,30 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float _speed = 3f;
-    private float _rotation = 5f;
-    private Vector3 targetDirection;
-    public GameObject border;
+    //private float _rotation = 5f;
+    //private Vector3 targetDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        //border = GameObject.Find("/Quad");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W)){
+        if(Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)){
             Forward();
         }
 
-        if(Input.GetKey(KeyCode.A)){
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             RotateLeft();
         }
 
-        if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
             Backward();
         }
 
-        if(Input.GetKey(KeyCode.D)){
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             RotateRight();
         }
         
@@ -53,31 +51,28 @@ public class PlayerController : MonoBehaviour
     public void Forward()
     {
         Transform oldPos = this.transform;
-       // if(CheckBorders(oldPos)){
         //if( oldPos.position.x < Border.xmax & Border.xmin < oldPos.position.x){
             this.transform.Translate(Vector3.forward*Time.deltaTime*_speed);
         //}
+        //CheckBorders(oldPos);
     }
-
         public void Backward()
     {
         Transform oldPos = this.transform;
         //if(CheckBorders(oldPos)){
             this.transform.Translate(Vector3.back*Time.deltaTime*_speed);
        // }
-        //CheckBorders(oldPos);
     }
-
         public void RotateLeft()
     {
-        this.transform.Rotate(0,-10f,0);
+        this.transform.Rotate(0,-5f,0);
     }
-
         public void RotateRight()
     {
-        this.transform.Rotate(0,10f,0);
+        this.transform.Rotate(0,5f,0);
     }
 
+/*
     bool CheckBorders(Transform oldPos){
         if(oldPos.position.x < Border.xmin ||  Border.xmax < oldPos.position.x || oldPos.position.z < Border.zmin ||  Border.zmax < oldPos.position.z){
             return false;
@@ -85,12 +80,12 @@ public class PlayerController : MonoBehaviour
         } else{
             return true;
         }
-/*
+
         if( ){
             return false;
             //this.transform.Translate(oldPos.position.x,oldPos.position.y,oldPos.position.z);
         } else{
             return true;
-        } */
-    } 
+        } 
+    } */
 }

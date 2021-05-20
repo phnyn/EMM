@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float _speed = 3f;
-    //private float _rotation = 5f;
-    //private Vector3 targetDirection;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public float _speed = 3f;
+    public float _rotation = 10f;
 
     // Update is called once per frame
     void Update()
@@ -63,13 +57,15 @@ public class PlayerController : MonoBehaviour
             this.transform.Translate(Vector3.back*Time.deltaTime*_speed);
        // }
     }
+
+    // braucht Time.deltaTime  -_> wenn Time.timescale = 0 danns stoppt es auch
         public void RotateLeft()
     {
-        this.transform.Rotate(0,-5f,0);
+        this.transform.Rotate(0,(-10*Time.deltaTime*_rotation),0);
     }
         public void RotateRight()
     {
-        this.transform.Rotate(0,5f,0);
+        this.transform.Rotate(0,10*Time.deltaTime*_rotation,0);
     }
 
 /*

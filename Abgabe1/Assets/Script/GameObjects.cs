@@ -10,7 +10,7 @@ public class GameObjects : MonoBehaviour
     {
         //instantiate objects
         for(int i=0; i < 8;i++){ 
-            Vector3 vec = new Vector3(UnityEngine.Random.Range(-3,3),1,UnityEngine.Random.Range(-1,5));
+            Vector3 vec = new Vector3(UnityEngine.Random.Range(-5,5),1,UnityEngine.Random.Range(-5,5));
             Instantiate(myPrefab,vec, Quaternion.Euler(UnityEngine.Random.Range(-50,50),UnityEngine.Random.Range(-50,50),UnityEngine.Random.Range(-50,50)),parent);
         }
     }

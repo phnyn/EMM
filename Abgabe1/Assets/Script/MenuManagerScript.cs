@@ -20,7 +20,6 @@ public class MenuManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-
         if(Input.GetKey(KeyCode.Escape)){
             Debug.Log(canvas);
             if(canvas == false){
